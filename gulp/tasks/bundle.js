@@ -20,7 +20,7 @@ function bundle (entries, output, title) {
 }
 
 gulp.task('bundle:3D', function () {
-  bundle(
+  return bundle(
     ['./app/dist/js/3D/vendor.js', './app/dist/js/3D/main.js'],
     './app/dist/js/3D/bundle.js',
     'Bundle 3D'
@@ -28,11 +28,11 @@ gulp.task('bundle:3D', function () {
 });
 
 gulp.task('bundle:2D', function () {
-  bundle(
+  return bundle(
     ['./app/dist/js/2D/vendor.js', './app/dist/js/2D/main.js'],
     './app/dist/js/2D/bundle.js',
     'Bundle 2D'
   );
 });
 
-gulp.task('bundle', ['bundle:2D', 'bundle:3D']);
+gulp.task('bundle', gulp.series('bundle:2D', 'bundle:3D'));

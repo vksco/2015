@@ -5,7 +5,8 @@
   "devDependencies": {
     "browserify": "^6.3.2",
     "browserify-shim": "^3.8.0",
-    "gulp": "^3.8.10",
+    "gsap": "^3.7.1",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.4.2",
     "gulp-connect": "^2.2.0",
     "gulp-htmlmin": "^1.0.0",
@@ -16,9 +17,16 @@
     "gulp-rename": "^1.2.0",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",
+    "howler": "^2.2.3",
+    "jquery": "^3.6.0",
     "jshint-stylish": "^1.0.0",
+    "node-notifier": "^10.0.0",
+    "skrollr": "^0.6.26",
+    "three": "^0.132.2",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.0.0",
+    "vinyl-fs": "^3.0.0",
+    "vinyl-source-stream": "^2.0.0",
+    "visibly.js": "^0.1.1",
     "watchify": "^3.7.0"
   },
   "browser": {
@@ -60,5 +68,6 @@
     "transform": [
       "browserify-shim"
     ]
-  }
+  },
+  "dependencies": {}
 }

@@ -9,8 +9,8 @@ var notify = require('gulp-notify');
 var pkg = require('../utils/pkg');
 
 gulp.task('html', function () {
-
-  gulp.src([
+  
+  return gulp.src([
       './app/src/**/*.html',
       '!./app/src/{vendor,vendor/**}'
     ])

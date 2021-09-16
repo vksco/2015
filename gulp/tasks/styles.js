@@ -16,7 +16,7 @@ function styles (input, output, message) {
   var outputDetails = splitPath(output);
 
   function process () {
-    gulp.src(input)
+    return gulp.src(input)
       .pipe(less().on('error', function (error) {
         gutil.log('Less error', error);
         gutil.beep();
@@ -29,15 +29,17 @@ function styles (input, output, message) {
       .pipe(notify({ title: message, message: 'Success', sound: 'Morse' }));
   }
 
-  process();
-
+  const processId = process();
+  
   if(pkg.watch) {
-    gulp.watch('./app/src/less/**/*.less', process);
+    gulp.watch('./app/src/less/**/*.less', processId);
   }
+
+  return processId;
 }
 
 gulp.task('styles:3D', function () {
-  styles(
+  return styles(
     './app/src/less/main3D.less',
     './app/dist/css/3D/main.css',
     'Styles 3D'
@@ -45,11 +47,11 @@ gulp.task('styles:3D', function () {
 });
 
 gulp.task('styles:2D', function () {
-  styles(
+  return styles(
     './app/src/less/main2D.less',
     './app/dist/css/2D/main.css',
     'Styles 2D'
   );
 });
 
-gulp.task('styles', ['styles:2D', 'styles:3D']);
+gulp.task('styles', gulp.series('styles:2D', 'styles:3D'));

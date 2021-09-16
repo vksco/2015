@@ -34,7 +34,7 @@ function vendor (dependencies, output, message) {
 }
 
 gulp.task('vendor:3D', function () {
-  vendor(
+  return vendor(
     [
       'jquery',
       'three',
@@ -52,7 +52,7 @@ gulp.task('vendor:3D', function () {
 });
 
 gulp.task('vendor:2D', function () {
-  vendor(
+  return vendor(
     [
       'jquery',
       'tweenlite',
@@ -65,4 +65,4 @@ gulp.task('vendor:2D', function () {
   );
 });
 
-gulp.task('vendor', ['vendor:2D', 'vendor:3D']);
+gulp.task('vendor', gulp.series('vendor:2D', 'vendor:3D'));
