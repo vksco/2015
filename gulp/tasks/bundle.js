@@ -4,6 +4,8 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
 var notify = require('gulp-notify');
+var watchify = require('watchify');
+var browserify = require('browserify');
 
 var splitPath = require('../utils/splitPath');
 

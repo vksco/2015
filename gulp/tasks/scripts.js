@@ -35,13 +35,16 @@ function scripts (entry, output, message) {
       .pipe(pkg.debug || false ? gutil.noop() : buffer())
       .pipe(pkg.debug || false ? gutil.noop() : uglify())
       .pipe(gulp.dest(outputDetails.path))
-      .pipe(notify({ title: message, message: 'Success', sound: 'Morse' }));
+      .pipe(notify({ title: message, message: 'Success', sound: 'Morse' }))
+      .on('finish', (event) => {
+        gulp.task('bundle')()
+      });
   }
 
   return bundle();
 }
 
-gulp.task('scripts:3D', function () {
+gulp.task('scripts:3D', function (event) {
   return scripts(
     './app/src/js/main3D.js',
     './app/dist/js/3D/main.js',
@@ -49,7 +52,7 @@ gulp.task('scripts:3D', function () {
   );
 });
 
-gulp.task('scripts:2D', function () {
+gulp.task('scripts:2D', function (event) {
   return scripts(
     './app/src/js/main2D.js',
     './app/dist/js/2D/main.js',
