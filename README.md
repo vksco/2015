@@ -1,6 +1,6 @@
 # This Repository is forked from vaalentin's 2015 project
-## The vaalentin/2015 was build with gulp@3, so it has some problems with latest version of node.
-## This Repository is Updated with gulp@4
+### The vaalentin/2015 was build with gulp@3, so it has some problems with latest version of node.
+### This Repository is Updated with gulp@4
 # 2015, a WebGL experiment
 
 ## Instructions of isntallation
